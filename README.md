@@ -16,3 +16,6 @@ If the KF has no measures from the HOG detector then uncertainty ellipses will i
 ## Author
 
 [Marcos Canales Mayo](https://github.com/MarcosCM)
+
+``plotUncertainEllip2D.m`` by **Javier Civera** -- jcivera@unizar.es and **J. M. M. Montiel** -- josemari@unizar.es
+If you use this code for academic work, please reference: Javier Civera, Oscar G. Grasa, Andrew J. Davison, J. M. M. Montiel,
