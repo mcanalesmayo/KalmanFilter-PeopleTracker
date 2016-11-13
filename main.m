@@ -103,25 +103,38 @@ for i = first_img_i:last_img_i
         sigma_t_t = sigma_t_tm1;
     end
     
-    % uncertainty ellipse
-    % velocity is not considered to draw the uncertainty ellipse
+    % uncertainty ellipses
+    % velocity is not considered to draw the uncertainty ellipses
+    % prediction ellipse
     pred_uncertainty_ellipse = [sigma_t_tm1(1,1) sigma_t_tm1(1,2); sigma_t_tm1(2,1) sigma_t_tm1(2,2)];
     nu_pred_uncertainty_ellipse = [mu_t_tm1(1,1); mu_t_tm1(2,1)];
+    % update ellipse
+    upd_uncertainty_ellipse = [sigma_t_t(1,1) sigma_t_t(1,2); sigma_t_t(2,1) sigma_t_t(2,2)];
+    nu_upd_uncertainty_ellipse = [mu_t_t(1,1); mu_t_t(2,1)];
     
-    % box around prediction
-    bbox_prediction_size = 200;
-    bbox_pred_x = mu_t_tm1(1,1) - bbox_prediction_size/2;
-    bbox_pred_y = mu_t_tm1(2,1) - bbox_prediction_size/2;
-    bbox_pred_width = bbox_prediction_size;
-    bbox_pred_height = bbox_prediction_size;
+    % prediction bbox
+    bbox_pred_size = 200;
+    bbox_pred_width = bbox_pred_size;
+    bbox_pred_height = bbox_pred_size;
+    bbox_pred_x = mu_t_tm1(1,1) - bbox_pred_size/2;
+    bbox_pred_y = mu_t_tm1(2,1) - bbox_pred_size/2;
     bbox_prediction = [bbox_pred_x bbox_pred_y bbox_pred_width bbox_pred_height];
+    % update bbox
+    bbox_upd_size = 240;
+    bbox_upd_width = bbox_upd_size;
+    bbox_upd_height = bbox_upd_size;
+    bbox_upd_x = mu_t_t(1,1) - bbox_upd_size/2;
+    bbox_upd_y = mu_t_t(2,1) - bbox_upd_size/2;
+    bbox_update = [bbox_upd_x bbox_upd_y bbox_upd_width bbox_upd_height];
     
-    % draw prediction box
+    % draw bboxes
     frame = insertObjectAnnotation(frame, 'rectangle', bbox_prediction, 'Prediction', 'Color', 'yellow');
+    frame = insertObjectAnnotation(frame, 'rectangle', bbox_update, 'Update', 'Color', 'blue');
     figure (1), imshow(frame)
     
-    % draw uncertainty ellipse
-    plotUncertainEllip2D(pred_uncertainty_ellipse, nu_pred_uncertainty_ellipse, 'blue');
+    % draw uncertainty ellipses
+    plotUncertainEllip2D(pred_uncertainty_ellipse, nu_pred_uncertainty_ellipse, 'yellow');
+    plotUncertainEllip2D(upd_uncertainty_ellipse, nu_upd_uncertainty_ellipse, 'blue');
     
     pause(0.5);
 end
