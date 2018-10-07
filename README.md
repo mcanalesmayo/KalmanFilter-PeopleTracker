@@ -13,6 +13,10 @@ It can be seen in the video:
 
 If the KF has no measures from the HOG detector then uncertainty ellipses will increase more and more.
 
+Please, see the result in below gif:
+
+![](kalman_filter.gif)
+
 ## Author
 
 [Marcos Canales Mayo](https://github.com/MarcosCM)
