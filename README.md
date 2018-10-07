@@ -17,9 +17,7 @@ Please, see the result in below gif:
 
 ![](kalman_filter.gif)
 
-## Author
-
-[Marcos Canales Mayo](https://github.com/MarcosCM)
+## References
 
 ``plotUncertainEllip2D.m`` by **Javier Civera** -- jcivera@unizar.es and **J. M. M. Montiel** -- josemari@unizar.es
 
