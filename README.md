@@ -2,7 +2,7 @@
 
 ## Description
 
-Implementation of the Kalman Filter in order to track people in a sequence of frames (video).
+Implementation of the Kalman Filter in order to track people in a sequence of frames (video). The current implementation takes into account the variation in pixels, which leads to a better performance than variation in the ground plane. However, it's less accurate.
 
 It can be seen in the video:
 * A green box which contains the position where the HOG detector has detected a person
